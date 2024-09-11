@@ -1,0 +1,11 @@
+Executable = run_jobs.sh
+ Universe = vanilla
+ Notification = Never
+ Arguments = 100 $(Process) /sphenix/u/mstojano/wsuwork/tutorials/CaloDataAnaRun24pp/macro/condor_submission/input_lists.txt
+ Initialdir = /sphenix/u/mstojano/wsuwork/tutorials/CaloDataAnaRun24pp/macro/condor_submission
+ request_memory = 4096MB
+ output = condor_$(process).out
+ error = condor_$(process).err
+ Log = /tmp/condor.log
+ PeriodicHold = (NumJobStarts>=1 && JobStatus == 1)
+ Queue
